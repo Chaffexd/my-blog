@@ -1,0 +1,29 @@
+.formText {
+    resize: none;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 1em 2.7em;
+}
+
+.formContainer {
+    padding: 1em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.dateForm {
+    display: none;
+}
+
+.button {
+    width: 80px;
+    border-radius: 15px;
+    border: 1px solid grey;
+    height: 35px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
