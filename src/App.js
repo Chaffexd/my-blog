@@ -19,8 +19,9 @@ function App() {
         loadedPosts.push({
           id: key,
           date: data[key].date,
+          // i currently don't have a title, we need this
           title: data[key].title,
-          blogText: data[key].blogText
+          blogText: data[key].text
         })
       }
 

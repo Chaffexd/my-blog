@@ -12,6 +12,7 @@ let currentDate = `${day}-${month}-${year}`;
 
 const Form = (props) => {
     const dateRef = useRef("");
+    const titleRef = useRef("");
     const textRef = useRef("");
 
     const addPost = (e) => {
@@ -23,12 +24,14 @@ const Form = (props) => {
         // our object containing post info
         const post = {
             date: currentDate,
+            title: titleRef.current.value,
             text: textRef.current.value
         };
 
         props.onAddPost(post);
         // clears the form after post submission
         dateRef.current.value = "";
+        titleRef.current.value = "";
         textRef.current.value = "";
     };
 
@@ -37,6 +40,17 @@ const Form = (props) => {
             <div>
                 <label htmlFor="date">{currentDate}</label>
                 <input type="text" id="date" className={classes.dateForm} ref={dateRef} />
+            </div>
+            <div>
+            <label htmlFor="title-text"></label>
+                <textarea 
+                    rows="1" 
+                    cols="60" 
+                    id="title-text" 
+                    className={classes.formText} 
+                    placeholder="Title"
+                    ref={titleRef}>
+                </textarea>
             </div>
             <div>
                 <label htmlFor="opening-text"></label>

@@ -9,3 +9,14 @@
     margin-bottom: 2em;
     padding: 1em;
 }
+
+.retrievedPost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5em;
+}
+
+.title {
+    font-size: 2em;
+}

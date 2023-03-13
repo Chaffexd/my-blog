@@ -1,10 +1,9 @@
 .mainPost {
-    margin-top: 2em;
-    height: 200px;
+    margin: 2em 0;
+    height: 250px;
     background-color: pink;
     border: 1px solid black;
     border-radius: 15px;
     display: flex;
     justify-content: center;
-    margin-bottom: 2em;
 }
