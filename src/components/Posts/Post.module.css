@@ -1,10 +1,11 @@
-.mainPost {
+.li {
+    list-style-type: none;
     margin-top: 2em;
-    height: 200px;
+    width: 600px;
+    height: auto;
     background-color: pink;
     border: 1px solid black;
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
     margin-bottom: 2em;
+    padding: 1em;
 }

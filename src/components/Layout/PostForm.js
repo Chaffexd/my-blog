@@ -3,10 +3,10 @@ import Form from './Form';
 
 import classes from './PostForm.module.css';
 
-const Post = () => {
+const Post = (props) => {
   return (
     <div className={classes.mainPost}>
-      <Form />
+      <Form onAddPost={props.onAddPost} />
     </div>
   );
 };

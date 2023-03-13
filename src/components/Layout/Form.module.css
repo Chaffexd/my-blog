@@ -1,8 +1,13 @@
 .formText {
     resize: none;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 15px;
-    padding: 1em 2.7em;
+    padding: 1em 1em;
+}
+
+.formText:focus {
+    outline: none;
+    border: 1px solid black;
 }
 
 .formContainer {
