@@ -5,7 +5,10 @@ import './App.css';
 import PostList from './components/Posts/PostList';
 
 function App() {
+  // this controls the new post being added
   const [posts, setPosts] = useState([]);
+  // this controls loading
+  const [loading, isLoading] = useState(false);
 
   const fetchPosts = useCallback(async() => {
     try {
@@ -19,7 +22,6 @@ function App() {
         loadedPosts.push({
           id: key,
           date: data[key].date,
-          // i currently don't have a title, we need this
           title: data[key].title,
           blogText: data[key].text
         })
@@ -32,6 +34,7 @@ function App() {
   }, []);
 
   const addPostHandler = (async(post) => {
+    isLoading(true);
     try {
       const response = await fetch("https://blog-project-918ed-default-rtdb.europe-west1.firebasedatabase.app/posts.json", {
         method: 'POST',
@@ -46,6 +49,7 @@ function App() {
     } catch(error) {
       console.log(error)
     }
+    isLoading(false);
     fetchPosts();
   });
 
@@ -53,11 +57,17 @@ function App() {
     fetchPosts();
   }, [fetchPosts]);
 
+  let content = <PostList posts={posts}/>
+
+  if(loading) {
+    content = <p>Loading</p>
+  }
+
   return (
     <>
       <PostForm onAddPost={addPostHandler} />
       <div>
-        <PostList posts={posts} />
+        {content}
       </div>
     </>
   );
