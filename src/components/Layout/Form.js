@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import classes from './Form.module.css';
 
@@ -14,13 +14,19 @@ const Form = (props) => {
     const dateRef = useRef("");
     const titleRef = useRef("");
     const textRef = useRef("");
+    const [disabled, setDisabled] = useState(true);
 
     const addPost = (e) => {
         // stop the form reloading
         e.preventDefault();
 
         // add post validation
-
+        if(titleRef.current.value < 2) {
+            setDisabled(true)
+        } else {
+            setDisabled(false)
+        }
+        
         // our object containing post info
         const post = {
             date: currentDate,
@@ -34,7 +40,7 @@ const Form = (props) => {
         titleRef.current.value = "";
         textRef.current.value = "";
     };
-
+    
     return (
         <form className={classes.formContainer} onSubmit={addPost} >
             <div>
@@ -63,7 +69,7 @@ const Form = (props) => {
                     ref={textRef}>
                 </textarea>
             </div>
-            <button className={classes.button}>Post</button>
+            <button className={classes.button} disabled={disabled}>{props.loading ? "Loading" : "Post"}</button>
         </form>
     );
 };

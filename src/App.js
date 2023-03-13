@@ -57,15 +57,11 @@ function App() {
     fetchPosts();
   }, [fetchPosts]);
 
-  let content = <PostList posts={posts}/>
-
-  if(loading) {
-    content = <p>Loading</p>
-  }
+  let content = <PostList posts={posts} />
 
   return (
     <>
-      <PostForm onAddPost={addPostHandler} />
+      <PostForm onAddPost={addPostHandler} loading={loading} />
       <div>
         {content}
       </div>
