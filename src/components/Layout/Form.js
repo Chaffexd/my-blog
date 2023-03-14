@@ -20,9 +20,6 @@ const Form = (props) => {
         // stop the form reloading
         e.preventDefault();
 
-        // add post validation
-
-
         // our object containing post info
         const post = {
             date: currentDate,
@@ -75,7 +72,7 @@ const Form = (props) => {
                     onChange={handleButton}>
                 </textarea>
             </div>
-            <button className={classes.button} disabled={disabled}>{props.loading ? "Loading..." : "Post"}</button>
+            <button className={`${classes.button} ${props.loading === true ? classes.loader : ""}`} disabled={disabled}>{props.loading ? "" : "Post"}</button>
         </form>
     );
 };

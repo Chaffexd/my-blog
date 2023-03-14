@@ -33,8 +33,14 @@ function App() {
     }
   }, []);
 
+
+
   const addPostHandler = (async(post) => {
     isLoading(true);
+    // the purpose of this is to make a promise resolve after 500ms so I can have a loader when posting
+    const waitFunction = () => {
+      return new Promise(resolve => setTimeout(() => resolve("Posting..."), 2000))
+    }
     try {
       const response = await fetch("https://blog-project-918ed-default-rtdb.europe-west1.firebasedatabase.app/posts.json", {
         method: 'POST',
@@ -44,6 +50,7 @@ function App() {
         }
       });
       const data = await response.json();
+      await waitFunction();
       console.log(data);
 
     } catch(error) {
@@ -53,10 +60,12 @@ function App() {
     fetchPosts();
   });
 
+  // this ensures posts are loaded when program is started
   useEffect(() => {
     fetchPosts();
   }, [fetchPosts]);
 
+  // this sets our content, should add error handling at some point
   let content = <PostList posts={posts} />
 
   return (
