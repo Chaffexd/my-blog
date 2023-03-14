@@ -75,7 +75,7 @@ const Form = (props) => {
                     onChange={handleButton}>
                 </textarea>
             </div>
-            <button className={classes.button} disabled={disabled}>{props.loading ? "Loading" : "Post"}</button>
+            <button className={classes.button} disabled={disabled}>{props.loading ? "Loading..." : "Post"}</button>
         </form>
     );
 };

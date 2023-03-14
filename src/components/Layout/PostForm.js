@@ -6,7 +6,7 @@ import classes from './PostForm.module.css';
 const Post = (props) => {
   return (
     <div className={classes.mainPost}>
-      <Form onAddPost={props.onAddPost} />
+      <Form onAddPost={props.onAddPost} loading={props.loading} />
     </div>
   );
 };
