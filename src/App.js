@@ -27,7 +27,7 @@ function App() {
         })
       }
 
-      setPosts(loadedPosts);
+      setPosts(loadedPosts.reverse());
     } catch(error) {
       throw new Error(error)
     }
