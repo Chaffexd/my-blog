@@ -1,13 +1,24 @@
+.formTitle {
+    resize: none;
+    border: 1px solid grey;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    padding: 1em 1em;
+    position: relative;
+    bottom: -13px;
+}
+
 .formText {
     resize: none;
     border: 1px solid grey;
-    border-radius: 15px;
+    border-radius: 0 0 15px 15px;
     padding: 1em 1em;
 }
 
-.formText:focus {
+.formText:focus, .formTitle:focus {
     outline: none;
     border: 1px solid black;
+    cursor: text
 }
 
 .formContainer {
@@ -31,4 +42,9 @@
 
 .button:hover {
     cursor: pointer;
+}
+
+.invalid {
+    border-color: red;
+    background: #fbdada;
 }

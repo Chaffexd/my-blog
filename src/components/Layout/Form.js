@@ -21,12 +21,8 @@ const Form = (props) => {
         e.preventDefault();
 
         // add post validation
-        if(titleRef.current.value < 2) {
-            setDisabled(true)
-        } else {
-            setDisabled(false)
-        }
-        
+
+
         // our object containing post info
         const post = {
             date: currentDate,
@@ -40,6 +36,14 @@ const Form = (props) => {
         titleRef.current.value = "";
         textRef.current.value = "";
     };
+
+    function handleButton() {
+        if(titleRef.current.value.length < 5 && textRef.current.value === "") {
+            setDisabled(true)
+        } else {
+            setDisabled(false)
+        }
+    }
     
     return (
         <form className={classes.formContainer} onSubmit={addPost} >
@@ -53,9 +57,10 @@ const Form = (props) => {
                     rows="1" 
                     cols="60" 
                     id="title-text" 
-                    className={classes.formText} 
+                    className={classes.formTitle} 
                     placeholder="Title"
-                    ref={titleRef}>
+                    ref={titleRef}
+                    onChange={handleButton}>
                 </textarea>
             </div>
             <div>
@@ -66,7 +71,8 @@ const Form = (props) => {
                     id="opening-text" 
                     className={classes.formText} 
                     placeholder="What do you want to share?"
-                    ref={textRef}>
+                    ref={textRef}
+                    onChange={handleButton}>
                 </textarea>
             </div>
             <button className={classes.button} disabled={disabled}>{props.loading ? "Loading" : "Post"}</button>
