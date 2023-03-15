@@ -26,22 +26,22 @@ body {
   justify-content: center;
 }
 
-.smallScreen {
-  display: flex;
-  flex-direction: column;
-}
-
 @media screen and (max-width: 950px) {
   .mainFeed {
-    flex-direction: column;
-  }
-  .smallScreen {
     flex-direction: column;
   }
   .toDo, .profile {
     height: 200px;
   }
-  .profile {
-    
+  .smallScreen {
+    display: flex;
+    justify-content: center;
+  }
+  .feed {
+    justify-content: center;
+  }
+  .contentHolder {
+    display: flex;
+    justify-content: center;
   }
 }

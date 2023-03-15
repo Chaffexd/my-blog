@@ -107,7 +107,7 @@ function App() {
         }
         <div className={classes.feed}>
           <PostForm onAddPost={addPostHandler} loading={loading} />
-          <div>
+          <div className={classes.contentHolder}>
             {content}
           </div>
         </div>
