@@ -7,26 +7,31 @@ const Todo = () => {
     const [toDoList, setToDoList] = useState([]);
 
     const addItem = () => {
+        // some validation, if filed is empty throw alert
         if(!input) {
             alert("Enter a task");
             return;
         }
 
+        // this is for mapping it later
         const item = {
             id: Math.floor(Math.random() * 50),
             value: input
         };
-
+        // we have to take a previous snapshot and update it via function for reliable updates
         setToDoList(prevList => [...prevList, item]);
 
+        // after setting task, reset string field
         setInput("");
-        console.log(toDoList)
+        console.log(toDoList);
     };
 
     const deleteItem = (id) => {
         console.log(id);
+        // filter removes id if they do not match based on item.id and id
         const newItems = toDoList.filter(item => item.id !== id);
-        setToDoList(newItems)
+        // we then set a new array based on the item removed
+        setToDoList(newItems);
     };
 
     return (
