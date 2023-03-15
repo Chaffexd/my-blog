@@ -5,6 +5,7 @@ import classes from './App.module.css';
 import Header from './components/Header/Header';
 import PostList from './components/Posts/PostList';
 import Profile from './components/Profile/Profile';
+import Todo from './components/Todo/Todo';
 
 function App() {
   // this controls the new post being added
@@ -86,7 +87,7 @@ function App() {
           </div>
         </div>
         <div className={classes.toDo}>
-          
+          <Todo />
         </div>
       </div>
     </>
