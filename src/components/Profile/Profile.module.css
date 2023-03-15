@@ -34,3 +34,21 @@
 .socials {
     padding: 1em;
 }
+
+@media screen and (max-width: 950px) {
+    .profile {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .profileHead {
+        border-bottom: none;
+        border-right: 1px solid grey;
+    }
+    .profileHead {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }

@@ -1,3 +1,40 @@
 .toDoForm {
     padding: 1em;
 }
+
+.button {
+    width: 56px;
+    border-radius: 15px;
+    color: white;
+    border: none;
+    background-color: #0077B5;
+    height: 28px;
+    float: right;
+}
+
+.li {
+    list-style-type: none;
+}
+
+.toDoInput {
+    border-radius: 15px;
+    border: 1px solid grey;
+    height: 25px;
+    width: 70%;
+    padding: 0 .5em;
+}
+
+.todoTop {
+    margin-bottom: 1em;
+}
+
+.toDoItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1em;
+}
+
+.deleteIcon {
+    height: 29.5px;
+}

@@ -12,6 +12,10 @@ body {
   border: 1px solid grey;
 }
 
+.toDo {
+  overflow-y: scroll;
+}
+
 .feed {
   display: flex;
   flex-direction: column;
@@ -20,4 +24,24 @@ body {
 .mainFeed {
   display: flex;
   justify-content: center;
+}
+
+.smallScreen {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 950px) {
+  .mainFeed {
+    flex-direction: column;
+  }
+  .smallScreen {
+    flex-direction: column;
+  }
+  .toDo, .profile {
+    height: 200px;
+  }
+  .profile {
+    
+  }
 }

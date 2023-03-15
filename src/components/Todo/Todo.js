@@ -36,23 +36,31 @@ const Todo = () => {
 
     return (
         <div className={classes.toDoForm}>
-            <h1>To do:</h1>
-            <input 
-                type="text"
-                id="to-do-input"
-                name="text"
-                autoComplete="off"
-                value={input}
-                onChange={e => setInput(e.target.value)}
-            />
-                <button onClick={addItem}>Add</button>
+            <div className={classes.todoTop}>
+                <h1>To do:</h1>
+                <input 
+                    className={classes.toDoInput}
+                    type="text"
+                    id="to-do-input"
+                    name="text"
+                    autoComplete="off"
+                    value={input}
+                    onChange={e => setInput(e.target.value)}
+                />
+                    <button className={classes.button} onClick={addItem}>Add</button>
+            </div>
                 <ul>
             {toDoList.map(item => {
                 return (
-                <li key={item.id}>{item.value}
-                    <button onClick={() => deleteItem(item.id)}>🗑
-                    </button>
-                </li>
+                <div className={classes.toDoItems}>
+                    <li 
+                        key={item.id}
+                        className={classes.li}
+                        >{item.value}
+                    </li>
+                        <button className={classes.deleteIcon} onClick={() => deleteItem(item.id)}>🗑
+                        </button>
+                </div>
             )
         })}
         </ul>

@@ -21,8 +21,3 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	font-family: 'Poppins';
 }
-
-body {
-  display: flex;
-  justify-content: center;
-}

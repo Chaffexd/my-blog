@@ -12,6 +12,8 @@ function App() {
   const [posts, setPosts] = useState([]);
   // this controls loading
   const [loading, isLoading] = useState(false);
+  // controls window width
+  const [width, setWidth] = useState(window.innerWidth > 1300);
 
   const fetchPosts = useCallback(async() => {
     try {
@@ -67,28 +69,51 @@ function App() {
 
   // this sets our content, should add error handling at some point
   let content = <PostList posts={posts} />
+  const updateLayout = () => {
+    setWidth(window.innerWidth > 1300);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout)
+  })
 
   
   return (
     <>
       <Header />
       <div className={classes.mainFeed}>
+        {width ? 
         <div className={classes.profile}>
           <Profile 
             name="Shane Chaffe"
             postSection="Posts: "
             postTotal={posts.length}
           />
+        </div> 
+        :
+        <div className={classes.smallScreen}>
+          <div className={classes.profile}>
+            <Profile 
+              name="Shane Chaffe"
+              postSection="Posts: "
+              postTotal={posts.length}
+            />
+          </div>
+          <div className={classes.toDo}>
+            <Todo />
+          </div>
         </div>
+        }
         <div className={classes.feed}>
           <PostForm onAddPost={addPostHandler} loading={loading} />
           <div>
             {content}
           </div>
         </div>
-        <div className={classes.toDo}>
+        {width && <div className={classes.toDo}>
           <Todo />
-        </div>
+        </div>}
       </div>
     </>
   );
