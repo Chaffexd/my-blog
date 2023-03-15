@@ -1,8 +1,8 @@
 .mainPost {
     margin: 2em 0;
     height: 250px;
-    background-color: pink;
-    border: 1px solid black;
+    background-color: white;
+    border: 1px solid grey;
     border-radius: 15px;
     display: flex;
     justify-content: center;

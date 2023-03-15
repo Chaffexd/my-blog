@@ -1,0 +1,22 @@
+body {
+  background-color: #caccce;
+  width: 100%;
+}
+
+#root {
+  display: flex;
+}
+
+.profile, .toDo {
+  width: 275px;
+  height: 400px;
+  background-color: white;
+  margin: 2em 1.5em;
+  border-radius: 15px;
+  border: 1px solid grey;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+}

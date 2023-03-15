@@ -72,7 +72,17 @@ const Form = (props) => {
                     onChange={handleButton}>
                 </textarea>
             </div>
-            <button className={`${classes.button} ${props.loading === true ? classes.loader : ""}`} disabled={disabled}>{props.loading ? "" : "Post"}</button>
+            { props.loading ? 
+                <span 
+                    className={`${props.loading === true ? classes.loader : ""}`}>
+                </span>
+                    :
+                <button 
+                className={classes.button} 
+                disabled={disabled}>
+                    {props.loading ? "" : "Post"}
+                </button> 
+            }
         </form>
     );
 };

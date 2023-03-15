@@ -1,8 +1,9 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import PostForm from '../src/components/Layout/PostForm';
 
-import './App.css';
+import classes from './App.module.css';
 import PostList from './components/Posts/PostList';
+import Profile from './components/Profile/Profile';
 
 function App() {
   // this controls the new post being added
@@ -17,29 +18,28 @@ function App() {
       console.log(data);
 
       const loadedPosts = [];
-
+      
       for(const key in data) {
         loadedPosts.push({
           id: key,
           date: data[key].date,
           title: data[key].title,
-          blogText: data[key].text
+          blogText: data[key].text,
+          length: loadedPosts.length
         })
       }
-
+      console.log(loadedPosts.length)
       setPosts(loadedPosts.reverse());
     } catch(error) {
       throw new Error(error)
     }
   }, []);
 
-
-
   const addPostHandler = (async(post) => {
     isLoading(true);
     // the purpose of this is to make a promise resolve after 500ms so I can have a loader when posting
     const waitFunction = () => {
-      return new Promise(resolve => setTimeout(() => resolve("Posting..."), 2000))
+      return new Promise(resolve => setTimeout(() => resolve("Posting..."), 3000))
     }
     try {
       const response = await fetch("https://blog-project-918ed-default-rtdb.europe-west1.firebasedatabase.app/posts.json", {
@@ -68,11 +68,24 @@ function App() {
   // this sets our content, should add error handling at some point
   let content = <PostList posts={posts} />
 
+  
   return (
     <>
-      <PostForm onAddPost={addPostHandler} loading={loading} />
-      <div>
-        {content}
+      <div className={classes.profile}>
+        <Profile 
+          name="Shane Chaffe"
+          postSection="Posts: "
+          postTotal={posts.length}
+        />
+      </div>
+      <div className={classes.feed}>
+        <PostForm onAddPost={addPostHandler} loading={loading} />
+        <div>
+          {content}
+        </div>
+      </div>
+      <div className={classes.toDo}>
+        
       </div>
     </>
   );
