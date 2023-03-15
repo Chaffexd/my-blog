@@ -1,17 +1,13 @@
 body {
-  background-color: #caccce;
+  background-color: #f4f0f0;
   width: 100%;
-}
-
-#root {
-  display: flex;
 }
 
 .profile, .toDo {
   width: 275px;
   height: 400px;
   background-color: white;
-  margin: 2em 1.5em;
+  margin: 1em 1.5em;
   border-radius: 15px;
   border: 1px solid grey;
 }
@@ -19,4 +15,9 @@ body {
 .feed {
   display: flex;
   flex-direction: column;
+}
+
+.mainFeed {
+  display: flex;
+  justify-content: center;
 }

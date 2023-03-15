@@ -8,12 +8,12 @@ const Profile = (props) => {
     <div className={classes.profile}>
         <div className={classes.profileHead}>
             <img src={ProfilePhoto} alt="Profile Pic" className={classes.photo} />
-            <p>{props.name}</p>
+            <p className={classes.name}>{props.name}</p>
         </div>
-        <div>
-            <p>{props.postSection}{props.postTotal}</p>
+        <div className={classes.postCounter}>
+            <p>{props.postSection}</p>&nbsp;<span className={classes.postTotal}>{props.postTotal}</span>
         </div>
-        <div>
+        <div className={classes.socials}>
             Socials
         </div>
     </div>
