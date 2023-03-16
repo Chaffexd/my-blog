@@ -49,7 +49,7 @@ const Form = (props) => {
                 <input type="text" id="date" className={classes.dateForm} ref={dateRef} />
             </div>
             <div>
-            <label htmlFor="title-text"></label>
+                <label htmlFor="title-text"></label>
                 <textarea 
                     rows="1" 
                     cols="60" 

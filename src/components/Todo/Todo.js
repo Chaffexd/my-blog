@@ -38,6 +38,7 @@ const Todo = () => {
         <div className={classes.toDoForm}>
             <div className={classes.todoTop}>
                 <h1>To do:</h1>
+                <label htmlFor="to-do-input" />
                 <input 
                     className={classes.toDoInput}
                     type="text"
