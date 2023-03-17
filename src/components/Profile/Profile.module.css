@@ -52,3 +52,15 @@
         align-items: center;
     }
   }
+  @media screen and (max-width: 630px) {
+    .profile {
+        justify-content: flex-start;
+    }
+    .profileHead {
+        flex-direction: row;
+        border-right: none;
+    }
+    .postCounter {
+        border: none;
+    }
+  }

@@ -89,6 +89,7 @@ function App() {
             name="Shane Chaffe"
             postSection="Posts: "
             postTotal={posts.length}
+            width={width}
           />
         </div> 
         :

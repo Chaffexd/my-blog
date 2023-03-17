@@ -7,3 +7,19 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-width: 950px) {
+    .mainPost {
+        display: flex;
+        justify-content: center;
+        width: 634px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .mainPost {
+        width: 335px;
+
+    }
+}

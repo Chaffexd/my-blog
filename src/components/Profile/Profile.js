@@ -15,7 +15,7 @@ const Profile = (props) => {
               <p>{props.postSection}</p>&nbsp;<span className={classes.postTotal}>{props.postTotal}</span>
           </div>
           <div className={classes.socials}>
-              Socials
+              {props.width < 375 ? "" : "Socials"}
           </div>
         </div>
     </div>

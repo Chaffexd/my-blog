@@ -45,3 +45,17 @@ body {
     justify-content: center;
   }
 }
+
+@media screen and (max-width: 630px) {
+  .smallScreen {
+    justify-content: center !important;
+    flex-direction: column;
+  }
+  .profile {
+    height: 100px;
+    width: 330px;
+  }
+  .toDo {
+    width: 330px;
+  }
+}
