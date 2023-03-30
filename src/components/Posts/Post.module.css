@@ -10,8 +10,9 @@
     padding: 1em;
 }
 
-.li h2 {
-    color: #004182;
+.containerDark {
+    background-color: #343A46;
+    color: #fff;
 }
 
 .retrievedPost {

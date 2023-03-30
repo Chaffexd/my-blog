@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import PostForm from '../src/components/Layout/PostForm';
+import { ThemeContext } from './components/context/ThemeContext';
 
 import classes from './App.module.css';
 import Header from './components/Header/Header';
@@ -14,6 +15,11 @@ function App() {
   const [loading, isLoading] = useState(false);
   // controls window width
   const [width, setWidth] = useState(window.innerWidth > 1300);
+  // controls dark mode toggle
+  const [theme, setTheme] = useState("light");
+  const toggleThemeHandler = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   const fetchPosts = useCallback(async() => {
     try {
@@ -79,10 +85,12 @@ function App() {
   })
 
   
+  const colorScheme = theme === 'light' ? classes.containerLight : classes.containerDark;
+
   return (
-    <>
+    <ThemeContext.Provider value={{ theme, setTheme, toggle: toggleThemeHandler }}>
       <Header />
-      <div className={classes.mainFeed}>
+      <div className={`${classes.mainFeed} ${colorScheme}`}>
         {width ? 
         <div className={classes.profile}>
           <Profile 
@@ -101,7 +109,7 @@ function App() {
               postTotal={posts.length}
             />
           </div>
-          <div className={classes.toDo}>
+          <div className={`${classes.toDo} ${colorScheme}`}>
             <Todo />
           </div>
         </div>
@@ -112,11 +120,11 @@ function App() {
             {content}
           </div>
         </div>
-        {width && <div className={classes.toDo}>
+        {width && <div className={`${classes.toDo} ${colorScheme}`} >
           <Todo />
         </div>}
       </div>
-    </>
+    </ThemeContext.Provider>
   );
 }
 

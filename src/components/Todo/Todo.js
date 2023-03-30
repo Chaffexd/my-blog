@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 import classes from './Todo.module.css';
 
 const Todo = () => {
     const [input, setInput] = useState("");
     const [toDoList, setToDoList] = useState([]);
+
+    const { theme } = useContext(ThemeContext);
+    const colorScheme = theme === 'light' ? classes.containerLight : classes.containerDark;
 
     const addItem = () => {
         // some validation, if filed is empty throw alert
@@ -35,7 +39,7 @@ const Todo = () => {
     };
 
     return (
-        <div className={classes.toDoForm}>
+        <div className={`${classes.toDoForm} ${colorScheme}`}>
             <div className={classes.todoTop}>
                 <h1>To do:</h1>
                 <label htmlFor="to-do-input" />
@@ -51,11 +55,10 @@ const Todo = () => {
                     <button className={classes.button} onClick={addItem}>Add</button>
             </div>
                 <ul>
-            {toDoList.map(item => {
+            {toDoList.map((item) => {
                 return (
-                <div className={classes.toDoItems}>
+                <div className={classes.toDoItems} key={item.id}>
                     <li 
-                        key={item.id}
                         className={classes.li}
                         >{item.value}
                     </li>

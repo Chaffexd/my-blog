@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 import classes from './Form.module.css';
 
@@ -15,6 +16,9 @@ const Form = (props) => {
     const titleRef = useRef("");
     const textRef = useRef("");
     const [disabled, setDisabled] = useState(true);
+    const { theme } = useContext(ThemeContext);
+    const colorScheme = theme === 'light' ? classes.containerLight : classes.containerDark;
+
 
     const addPost = (e) => {
         // stop the form reloading
@@ -29,6 +33,7 @@ const Form = (props) => {
 
         props.onAddPost(post);
         // clears the form after post submission
+        // this is not good practice as it diectly manipulates the dom
         dateRef.current.value = "";
         titleRef.current.value = "";
         textRef.current.value = "";
@@ -43,7 +48,7 @@ const Form = (props) => {
     }
     
     return (
-        <form className={classes.formContainer} onSubmit={addPost} >
+        <form className={`${classes.formContainer} ${colorScheme}`} onSubmit={addPost} >
             <div>
                 <label htmlFor="date">{currentDate}</label>
                 <input type="text" id="date" className={classes.dateForm} ref={dateRef} />

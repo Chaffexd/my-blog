@@ -26,6 +26,16 @@ body {
   justify-content: center;
 }
 
+.containerLight {
+  background-color: #f5f5f5;
+  color: #242832;
+}
+
+.containerDark {
+  background-color: #242832;
+  color: #343A46;
+}
+
 @media screen and (max-width: 950px) {
   .mainFeed {
     flex-direction: column;
